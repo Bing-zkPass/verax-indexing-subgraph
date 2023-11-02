@@ -1,0 +1,19 @@
+type SchemaCreated @entity {
+  id: String!
+  name: String! # string
+  description: String! # string
+  context: String! # string
+  schemaString: String! # string
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Attested @entity {
+  id: String!
+  recipient: Bytes! # address
+  notary: Bytes! # address
+  allocator: Bytes! # address
+  schema: Bytes! # bytes32
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

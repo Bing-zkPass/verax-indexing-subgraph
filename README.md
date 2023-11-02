@@ -1,2 +1,2 @@
 # verax-indexing-subgraph
-Subgraph for verax attestation
+Subgraph for indexing verax attestation

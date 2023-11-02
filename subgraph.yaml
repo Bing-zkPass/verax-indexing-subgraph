@@ -1,0 +1,44 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Schema
+    network: 
+    source:
+      address: ""
+      abi: Schema
+      startBlock: 
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - SchemaCreated
+      abis:
+        - name: Schema
+          file: ./abis/Schema.json
+      eventHandlers:
+        - event: SchemaCreated(indexed bytes32,string,string,string,string)
+          handler: handleSchemaCreated
+      file: ./src/schema.ts
+  - kind: ethereum
+    name: Portal
+    network: 
+    source:
+      address: ""
+      abi: Portal
+      startBlock: 
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Attested
+      abis:
+        - name: Portal
+          file: ./abis/Portal.json
+      eventHandlers:
+        - event: Attested(indexed bytes32,indexed address,indexed address,address,bytes32)
+          handler: handleAttested
+      file: ./src/portal.ts
